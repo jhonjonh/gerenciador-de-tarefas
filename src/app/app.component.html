@@ -1,14 +1,15 @@
 <div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light border border-dark rounded-bottom">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border border-secondary rounded-bottom">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
-          {{ title }}
           <!-- interpolacao de string do Angular - insere title de app.component-->
+          {{ title }}
         </a>
       </div>
     </div>
-
   </nav>
+  <!--usa o módulo de rotas do Angular-->
+  <router-outlet></router-outlet>
 
 </div>
