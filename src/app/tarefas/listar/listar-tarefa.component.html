@@ -11,12 +11,12 @@
                 </a>
             </th>
         </tr>
-        <tr *ngFor="let tarefa of tarefas">
-            <td [class.success]="tarefa.concluida">
+        <tr *ngFor="let tarefa of tarefas"  [class.concluida]="tarefa.concluida">
+            <td>
                 {{ tarefa.nome }}
             </td>
             <td style="width: 70px" class="text-center">
-                <input type="checkbox">
+                <input type="checkbox" [value]="tarefa.id" [checked]="tarefa.concluida" (click)="alterarStatus(tarefa)">
             </td>
             <td class="text-center btn-group-sm" style="width: 20%">
                 <a title="Editar" alt="Editar" class="btn btn-info mr-1">
