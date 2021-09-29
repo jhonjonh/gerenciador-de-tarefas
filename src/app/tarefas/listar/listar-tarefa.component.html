@@ -1,17 +1,19 @@
 <h1>Tarefas</h1>
 
 <table class="table table-striped table-bordered table-hover">
-    <tbody>
+    <thead class="thead-light">
         <tr>
             <th>Tarefa</th>
             <th>Concluída</th>
             <th class="text-center">
-                <a class="btn btn-xs btn-success" [routerLink]="['/tarefas/cadastrar']">
+                <a class="btn btn-success small" [routerLink]="['/tarefas/cadastrar']">
                     <i class="bi bi-plus-lg"></i> Novo
                 </a>
             </th>
         </tr>
-        <tr *ngFor="let tarefa of tarefas"  [class.concluida]="tarefa.concluida">
+    </thead>
+    <tbody>
+        <tr *ngFor="let tarefa of tarefas" [class.concluida]="tarefa.concluida">
             <td>
                 {{ tarefa.nome }}
             </td>
@@ -19,7 +21,7 @@
                 <input type="checkbox" [value]="tarefa.id" [checked]="tarefa.concluida" (click)="alterarStatus(tarefa)">
             </td>
             <td class="text-center btn-group-sm" style="width: 20%">
-                <a title="Editar" alt="Editar" class="btn btn-info mr-1">
+                <a title="Editar" alt="Editar" class="btn btn-info mr-1" [routerLink]="['/tarefas/editar', tarefa.id]">
                     <i class="bi bi-pencil-square"></i> Editar
                 </a>
                 <a href="#" title="Remover" alt="Remover" class="btn btn-danger" (click)="remover($event, tarefa)">

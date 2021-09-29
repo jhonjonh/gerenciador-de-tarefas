@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <form class="card px-4 pt-3" #formTarefa="ngForm">
+      <div class="form-group">
+        <label for="nome">Tarefa:</label>
+        <input type="text" class="form-control" id="nome" name="nome" #nome="ngModel" [(ngModel)]="tarefa.nome" minlength="5" required> 
+        <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger mt-4">
+          <div [hidden]= "!nome.errors.required">
+            Digite o novo valor da tarefa.
+          </div>
+          <div [hidden]= "!nome.errors.minlength">
+            A tarefa deve conter ao menos 5 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <input type="submit" class="btn btn-success" value="Atualizar" (click)="atualizar()" [disabled]="!formTarefa.form.valid">
+        <a class="btn btn-light" [routerLink]= "['/tarefas']">
+          <i class="bi bi-chevron-left"></i> Voltar
+        </a>
+      </div>
+    </form>
+  </div>
